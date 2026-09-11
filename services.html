@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>AstroBioLusitanos</title>
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet"> 
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --abl-teal: #159a80;
+            --abl-gold: #f2b93c;
+            --abl-crimson: #d1466a;
+        }
+        /* ===== Shared top-bar treatment (same as index.html / onde-estivemos.html) =====
+           Only the navbar is touched here — everything else on this page is untouched. */
+        body { padding-top: 150px !important; }
+        #main-nav.navbar { min-height: 0 !important; }
+        #main-nav > .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        #main-nav .navbar-header { padding: 0 !important; }
+        #main-nav .navbar-brand {
+            padding: 14px 0 !important;
+            margin-left: 0 !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-brand img {
+            max-height: 120px !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-nav > li > a {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            font-size: 17px !important;
+            line-height: 1.2 !important;
+        }
+        .abl-topbar-stripes { display: none; }
+        @media (min-width: 768px) {
+            #main-nav > .container { display: flex; align-items: center; }
+            .abl-topbar-stripes {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 5px;
+                flex: 1 1 auto;
+                height: 34px;
+                margin: 0 22px;
+            }
+            .abl-topbar-stripe { width: 100%; height: 6px; border-radius: 2px; flex: 0 0 auto; }
+            .abl-topbar-stripe-green   { background: var(--abl-teal); }
+            .abl-topbar-stripe-gold    { background: var(--abl-gold); }
+            .abl-topbar-stripe-crimson { background: var(--abl-crimson); }
+        }
+    </style>
+
+    <style>
+        /* The four named workshops share the exact same .workshop-item look as the
+           other topics — they're just wrapped in a link since their pages exist. */
+        .workshop-item-link,
+        .workshop-item-link:hover,
+        .workshop-item-link:focus {
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        /* Little green "emoji-style" icon badge for each workshop */
+        .workshop-icon-badge {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(21,154,128,.12);
+        }
+        .workshop-icon-badge i {
+            font-size: 36px;
+            color: #159a80;
+        }
+
+        /* Fix Bootstrap's float-grid misalignment with only 2 columns of uneven height */
+        .row .features {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .features > [class*="col-"] {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .workshop-item-link {
+            flex: 1 1 auto;
+            width: 100%;
+        }
+        .workshop-item-link .workshop-item {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head> 
+
+<body id="servies-page">
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/ABL_logo_v1_transparent_white_text.png" alt="logo"></a>
+                </div>
+                <div class="abl-topbar-stripes" aria-hidden="true">
+                    <span class="abl-topbar-stripe abl-topbar-stripe-green"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-gold"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-crimson"></span>
+                </div>
+<div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">início</a></li>
+                        <li><a href="index.html#about">quem somos</a></li>
+                        <li><a href="team.html">equipa</a></li>
+                        <li><a href="onde-estivemos.html">onde estivemos</a></li>
+                        <!-- <li><a href="artigos.html">artigos</a></li> -->
+                        <li><a href="services.html">workshops</a></li>
+                        <!-- <li><a href="merch.html">merch</a></li> -->
+                        <li><a href= "jab.html">JAB</a></li>
+                        <li><a href="entrevistas.html">entrevistas</a></li>
+                        <li><a href="contactos.html">contactos</a></li>   
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+   
+   <section id="services" >
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown">Apresentações & Workshops</h2>
+                <p class="wow fadeInDown">Levamos a astrobiologia a escolas e eventos com sessões pensadas para diferentes idades e níveis de curiosidade.</p>
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+                        <a class="workshop-item-link" href="workshops/workshop-vida-como-nao-a-conhecemos.html">
+                            <div class="workshop-item">
+                                <span class="workshop-icon-badge"><i class="fa-solid fa-seedling"></i></span>
+                                <h4>A vida como não a conhecemos</h4>
+                                <p>Os limites da vida na Terra e os microrganismos que sobrevivem em ambientes extremos, e como isso nos ajuda a procurar vida noutros planetas e luas.</p>
+                            </div>
+                        </a>
+                    </div><!--/.col-md-6-->
+
+                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">
+                        <a class="workshop-item-link" href="workshops/workshop-perdidos-no-espaco.html">
+                            <div class="workshop-item">
+                                <span class="workshop-icon-badge"><i class="fa-solid fa-recycle"></i></span>
+                                <h4>Perdidos no Espaço</h4>
+                                <p>Como funcionam os sistemas de suporte de vida que sustentam astronautas no espaço, e o desafio de imaginar os sistemas do futuro para a Lua e Marte.</p>
+                            </div>
+                        </a>
+                    </div><!--/.col-md-6-->
+
+                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
+                        <a class="workshop-item-link" href="workshops/workshop-2001-ideias-para-o-futuro.html">
+                            <div class="workshop-item">
+                                <span class="workshop-icon-badge"><i class="fa-solid fa-user-astronaut"></i></span>
+                                <h4>2001: Ideias para o Futuro</h4>
+                                <p>Uma reflexão sobre o futuro da exploração espacial e os avanços tecnológicos que este desafio pode trazer à sociedade.</p>
+                            </div>
+                        </a>
+                    </div><!--/.col-md-6-->
+
+                    <div class="col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                        <a class="workshop-item-link" href="workshops/workshop-a-procura-de-krypton.html">
+                            <div class="workshop-item">
+                                <span class="workshop-icon-badge"><i class="fa-solid fa-satellite-dish"></i></span>
+                                <h4>À Procura de Krypton</h4>
+                                <p>Como se detetam planetas à volta de outras estrelas, através de uma atividade simulada de análise de observações astronómicas.</p>
+                            </div>
+                        </a>
+                    </div><!--/.col-md-6-->
+                </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                    &copy; 2026 AstroBioLusitanos
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom-scripts.js"></script>
+</body>
+</html>

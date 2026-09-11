@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>AstroBioLusitanos | JAB &middot; Jornadas de Astrobiologia</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --abl-teal: #159a80;
+            --abl-gold: #f2b93c;
+            --abl-crimson: #d1466a;
+            --abl-purple: #4a2f7a;
+            --abl-navy: #1c2a6b;
+            --abl-cream: #f5e7c6;
+        }
+        body {
+            padding-top: 150px !important;
+            position: relative;
+            background: #ffffff !important;
+        }
+        #main-nav.navbar { min-height: 0 !important; }
+        #main-nav > .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        #main-nav .navbar-header { padding: 0 !important; }
+        #main-nav .navbar-brand {
+            padding: 14px 0 !important;
+            margin-left: 0 !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-brand img {
+            max-height: 120px !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-nav > li > a {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            font-size: 17px !important;
+            line-height: 1.2 !important;
+        }
+        .abl-topbar-stripes { display: none; }
+        @media (min-width: 768px) {
+            #main-nav > .container { display: flex; align-items: center; }
+            .abl-topbar-stripes {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 5px;
+                flex: 1 1 auto;
+                height: 34px;
+                margin: 0 22px;
+            }
+            .abl-topbar-stripe { width: 100%; height: 6px; border-radius: 2px; flex: 0 0 auto; }
+            .abl-topbar-stripe-green   { background: var(--abl-teal); }
+            .abl-topbar-stripe-gold    { background: var(--abl-gold); }
+            .abl-topbar-stripe-crimson { background: var(--abl-crimson); }
+        }
+        .abl-side-frame {
+            display: none;
+            position: absolute;
+            top: 150px;
+            bottom: 0;
+            width: 90px;
+            background: #000 url('images/stars.jpg') repeat-y center top;
+            background-size: 100% auto;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .abl-side-frame-left  { left: 0; }
+        .abl-side-frame-right { right: 0; }
+        @media (min-width: 1300px) { .abl-side-frame { display: block; } }
+
+        /* ================= JAB event page ================= */
+        .jab-hero { padding: 50px 0 0; text-align: center; }
+        .jab-hero-img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+        .jab-hero-caption {
+            font-size: 12px;
+            color: #918e82;
+            margin: 8px 0 0;
+            font-style: italic;
+        }
+        .jab-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--abl-crimson);
+            margin: 30px 0 6px;
+        }
+        .jab-title { color: var(--abl-navy); margin: 0 0 16px; }
+        .jab-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
+            margin-bottom: 24px;
+        }
+        .jab-meta-row span {
+            font-size: 14px;
+            color: #55534a;
+        }
+        .jab-meta-row i { margin-right: 6px; color: var(--abl-teal); }
+        .jab-intro {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #3a3830;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .jab-section { padding: 30px 0; }
+        .jab-section h2 {
+            color: var(--abl-navy);
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .jab-section-sub {
+            color: #918e82;
+            margin-bottom: 30px;
+            max-width: 720px;
+        }
+
+        .jab-panel {
+            background: #fff;
+            border-radius: 0;
+            padding: 24px 26px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.05);
+            border-left: 4px solid var(--abl-teal);
+        }
+        .jab-panel h3 {
+            color: var(--abl-navy);
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+        .jab-panel .jab-panel-day {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: var(--abl-teal);
+            margin-bottom: 6px;
+        }
+        .jab-panel p { color: #55534a; margin: 0; }
+        .jab-panel p + p { margin-top: 8px; }
+
+        .jab-workshop-card {
+            display: block;
+            background: #fff;
+            border-radius: 0;
+            padding: 22px 24px;
+            margin-bottom: 18px;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(0,0,0,.05);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .jab-workshop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0,0,0,.1);
+            text-decoration: none;
+        }
+        .jab-workshop-card h4 {
+            color: var(--abl-navy);
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+        .jab-workshop-card p {
+            color: #55534a;
+            font-size: 14px;
+            margin: 0;
+        }
+        .jab-workshop-card .jab-ws-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--abl-crimson);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .jab-poster-highlight {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+            align-items: center;
+            background: #fff;
+            border-radius: 0;
+            padding: 22px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.05);
+        }
+        .jab-poster-highlight img {
+            width: 260px;
+            max-width: 100%;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .jab-poster-highlight .jab-tag {
+            display: inline-block;
+            background: rgba(242,185,60,.15);
+            color: #a3760a;
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            margin-bottom: 8px;
+        }
+        .jab-poster-highlight h4 { color: var(--abl-navy); margin: 0 0 6px; }
+        .jab-poster-highlight p { color: #55534a; margin: 0; }
+
+        .jab-closing {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #3a3830;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .jab-byline {
+            text-align: center;
+            font-size: 13px;
+            color: #918e82;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+
+<body id="jab-page">
+
+    <div class="abl-side-frame abl-side-frame-left" aria-hidden="true"></div>
+    <div class="abl-side-frame abl-side-frame-right" aria-hidden="true"></div>
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/ABL_logo_v1_transparent_white_text.png" alt="logo"></a>
+                </div>
+                <div class="abl-topbar-stripes" aria-hidden="true">
+                    <span class="abl-topbar-stripe abl-topbar-stripe-green"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-gold"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-crimson"></span>
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">início</a></li>
+                        <li><a href="index.html#about">quem somos</a></li>
+                        <li><a href="team.html">equipa</a></li>
+                        <li><a href="onde-estivemos.html">onde estivemos</a></li>
+                        <!-- <li><a href="artigos.html">artigos</a></li> -->
+                        <li><a href="services.html">workshops</a></li>
+                        <!-- <li><a href="merch.html">merch</a></li> -->
+                        <li class="active"><a href="jab.html">JAB</a></li>
+                        <li><a href="entrevistas.html">entrevistas</a></li>
+                        <li><a href="contactos.html">contactos</a></li>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section class="jab-hero">
+        <div class="container">
+            <img class="jab-hero-img" src="images/jab/foto-grupo.jpg" alt="Foto de grupo dos participantes do evento JAB">
+            <p class="jab-hero-caption">Foto de grupo dos participantes do evento "Astrobiologia: Entre Estrelas e Microrganismos".</p>
+
+            <span class="jab-eyebrow">Evento organizado pela ABL</span>
+            <h1 class="jab-title">JAB &middot; Jornadas de Astrobiologia 🔭</h1>
+
+            <div class="jab-meta-row">
+                <span><i class="fa-regular fa-calendar"></i>24 e 25 de maio de 2025</span>
+                <span><i class="fa-solid fa-location-dot"></i>Planetário do Porto</span>
+                <span><i class="fa-solid fa-users"></i>Ensino Secundário ao Doutoramento</span>
+            </div>
+
+            <p class="jab-intro">
+                As Jornadas de Astrobiologia (JAB) foram o primeiro evento científico de astrobiologia
+                organizado na Universidade do Porto, com o título "Astrobiologia: Entre Estrelas e
+                Microrganismos". Foi um evento pensado e organizado inteiramente pela equipa da
+                AstroBioLusitanos, com o apoio do Centro de Astrofísica da Universidade do Porto (CAUP)
+                e do Instituto de Astrofísica e Ciências do Espaço (IAstro). Ao longo de um fim de semana,
+                juntámos participantes desde o ensino secundário ao doutoramento para um programa que
+                cruzou biologia, física e química em torno das grandes questões da astrobiologia.
+            </p>
+        </div>
+    </section>
+
+    <section class="jab-section">
+        <div class="container">
+            <h2>Programa científico</h2>
+            <p class="jab-section-sub">Cinco painéis temáticos, com investigadoras e investigadores portugueses de diferentes áreas da astrobiologia.</p>
+
+            <div class="jab-panel">
+                <span class="jab-panel-day">Sábado, 24 de maio</span>
+                <h3>Ambientes Extremos</h3>
+                <p>A Dra. Catarina Magalhães (Ecologia e Biogeoquímica dos Microbiomas) apresentou como microrganismos interagem com ambientes extremos como fundos oceânicos e os desertos gelados da Antártida.</p>
+                <p>A Dra. Marta Simões (Universidade de Ciências e Tecnologias de Macau) introduziu a astromicologia, discutindo a resistência de fungos a condições espaciais extremas e o seu potencial na exploração do espaço.</p>
+            </div>
+
+            <div class="jab-panel">
+                <span class="jab-panel-day">Sábado, 24 de maio</span>
+                <h3>Astrofísica</h3>
+                <p>O Dr. Pedro Machado (Centro de Astronomia e Astrofísica da UL) partilhou perspetivas sobre a evolução e habitabilidade de corpos celestes do Sistema Solar.</p>
+                <p>A Dra. Ângela Santos (CAUP) explicou como o magnetismo e a rotação das estrelas podem influenciar a habitabilidade de exoplanetas.</p>
+            </div>
+
+            <div class="jab-panel">
+                <span class="jab-panel-day">Domingo, 25 de maio</span>
+                <h3>Microbiologia Espacial</h3>
+                <p>A Dra. Marta Cortesão (CAUP) apresentou exemplos de missões espaciais envolvendo microrganismos e o seu contributo para sistemas sustentáveis.</p>
+                <p>A Dra. Lígia Coelho (Universidade de Cornell) explicou como processos observados na Terra podem ajudar a detetar vida em luas geladas e exoplanetas, através de bioassinaturas.</p>
+            </div>
+
+            <div class="jab-panel">
+                <span class="jab-panel-day">Domingo, 25 de maio</span>
+                <h3>Exploração Espacial</h3>
+                <p>O Dr. Rafael Fernandes (médico, residente de Neurocirurgia na ULS São José) detalhou os efeitos da microgravidade e da radiação espacial na saúde dos astronautas, com foco no sistema nervoso.</p>
+                <p>O investigador Tiago Ramalho (Universidade de Bremen) abordou o papel de cianobactérias na criação de sistemas sustentáveis para futuras missões a Marte.</p>
+            </div>
+
+            <div class="jab-panel">
+                <span class="jab-panel-day">Domingo, 25 de maio</span>
+                <h3>Comunicação de Ciência</h3>
+                <p>Fábio da Silva (criador da página Universo Perpendicular) falou sobre a importância de uma comunicação científica rigorosa em astrobiologia, centrada nos factos e promotora do pensamento crítico.</p>
+            </div>
+
+            <img class="jab-hero-img" style="margin-top: 20px;" src="images/jab/mesa-redonda.jpg" alt="Mesa redonda com a Dra. Marta Cortesão e o Dr. Pedro Machado">
+            <p class="jab-hero-caption">Mesa redonda, moderada por Marina Grilo, com a participação da Dra. Marta Cortesão e do Dr. Pedro Machado.</p>
+        </div>
+    </section>
+
+    <section class="jab-section">
+        <div class="container">
+            <h2>Workshops: astrobiologia para tod@s</h2>
+            <p class="jab-section-sub">Os participantes puseram em prática o que aprenderam nas palestras, em workshops conduzidos pela equipa da ABL: os mesmos que continuamos a levar a escolas e universidades por todo o país.</p>
+
+            <a class="jab-workshop-card" href="workshops/workshop-vida-como-nao-a-conhecemos.html">
+                <h4>🌱 A vida como não a conhecemos</h4>
+                <p>Estudo de microrganismos extremófilos e das suas estratégias de sobrevivência, e o que nos podem ensinar sobre habitabilidade noutros planetas.</p>
+                <span class="jab-ws-link">Ver workshop &rarr;</span>
+            </a>
+
+            <a class="jab-workshop-card" href="workshops/workshop-a-procura-de-krypton.html">
+                <h4>☄️ Astrofísica: À Procura de Krypton</h4>
+                <p>Introdução às técnicas atuais de deteção de exoplanetas, com uma atividade de simulação da deteção de um exoplaneta.</p>
+                <span class="jab-ws-link">Ver workshop &rarr;</span>
+            </a>
+
+            <a class="jab-workshop-card" href="workshops/workshop-perdidos-no-espaco.html">
+                <h4>🧬 Microbiologia: Perdidos no Espaço</h4>
+                <p>Desenvolvimento de sistemas de suporte de vida para Marte: os participantes construíram um ecossistema artificial capaz de produzir comida, oxigénio e água para uma missão tripulada.</p>
+                <span class="jab-ws-link">Ver workshop &rarr;</span>
+            </a>
+
+            <a class="jab-workshop-card" href="workshops/workshop-2001-ideias-para-o-futuro.html">
+                <h4>🚀 Exploração Espacial: 2001 Ideias para o Futuro</h4>
+                <p>Num formato ao estilo Shark Tank, os participantes apresentaram soluções inovadoras para desafios de medicina e engenharia no espaço.</p>
+                <span class="jab-ws-link">Ver workshop &rarr;</span>
+            </a>
+
+            <img class="jab-hero-img" style="margin-top: 10px;" src="images/jab/workshop-krypton.jpg" alt="Workshop Astrofísica: À Procura de Krypton">
+            <p class="jab-hero-caption">Workshop "Astrofísica: À Procura de Krypton", em que os participantes aprenderam técnicas de deteção de exoplanetas.</p>
+        </div>
+    </section>
+
+    <section class="jab-section">
+        <div class="container">
+            <h2>Sessão de pósteres</h2>
+            <p class="jab-section-sub">Entre painéis e workshops, os participantes apresentaram os seus próprios trabalhos de investigação em astrobiologia durante os coffee breaks: com direito a votação do público para o melhor póster.</p>
+
+            <div class="jab-poster-highlight">
+                <img src="images/jab/poster-vencedor.jpg" alt="Leonardo Berger com o póster vencedor">
+                <div>
+                    <span class="jab-tag">Póster vencedor</span>
+                    <h4>Leonardo Berger &middot; Ensino Secundário</h4>
+                    <p>"Xanthoria: liquens as an UV-shield": um estudo sobre o uso de líquenes na proteção contra radiação nociva, com aplicações relevantes para a exploração espacial. O trabalho foi escolhido por voto dos participantes como o melhor póster do evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jab-section">
+        <div class="container">
+            <p class="jab-closing">
+                Depois de um fim de semana entre estrelas e microrganismos, ficou claro que a
+                astrobiologia está a crescer em Portugal. A forte adesão de estudantes e
+                investigadores mostrou o potencial do país para contribuir ativamente para os
+                desafios atuais desta área.
+            </p>
+            <p class="jab-byline">Texto original: Isabel Santos de Sousa e Bárbara Pedrosa &middot; Fotografia: Bárbara Pedrosa</p>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                    &copy; 2026 AstroBioLusitanos
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom-scripts.js"></script>
+</body>
+</html>

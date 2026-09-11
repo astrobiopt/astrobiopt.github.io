@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>AstroBioLusitanos | Physis Week 2025</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../js/html5shiv.js"></script>
+    <script src="../../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../../images/ico/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --abl-teal: #159a80;
+            --abl-gold: #f2b93c;
+            --abl-crimson: #d1466a;
+            --abl-purple: #4a2f7a;
+            --abl-navy: #1c2a6b;
+            --abl-cream: #f5e7c6;
+        }
+        body {
+            padding-top: 150px !important;
+            position: relative;
+            background: #f5f2ea !important;
+        }
+        #main-nav.navbar { min-height: 0 !important; }
+        #main-nav > .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        #main-nav .navbar-header { padding: 0 !important; }
+        #main-nav .navbar-brand {
+            padding: 14px 0 !important;
+            margin-left: 0 !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-brand img {
+            max-height: 120px !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-nav > li > a {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            font-size: 17px !important;
+            line-height: 1.2 !important;
+        }
+        .abl-topbar-stripes { display: none; }
+        @media (min-width: 768px) {
+            #main-nav > .container { display: flex; align-items: center; }
+            .abl-topbar-stripes {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 5px;
+                flex: 1 1 auto;
+                height: 34px;
+                margin: 0 22px;
+            }
+            .abl-topbar-stripe { width: 100%; height: 6px; border-radius: 2px; flex: 0 0 auto; }
+            .abl-topbar-stripe-green   { background: var(--abl-teal); }
+            .abl-topbar-stripe-gold    { background: var(--abl-gold); }
+            .abl-topbar-stripe-crimson { background: var(--abl-crimson); }
+        }
+        .abl-side-frame {
+            display: none;
+            position: absolute;
+            top: 150px;
+            bottom: 0;
+            width: 90px;
+            background: #000 url('../../images/stars.jpg') repeat-y center top;
+            background-size: 100% auto;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .abl-side-frame-left  { left: 0; }
+        .abl-side-frame-right { right: 0; }
+        @media (min-width: 1300px) { .abl-side-frame { display: block; } }
+
+        .visita-voltar {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--abl-navy);
+            text-decoration: none;
+        }
+        .visita-voltar:hover { color: var(--abl-crimson); }
+
+        .visita-photos { display: flex; flex-direction: column; gap: 10px; }
+        .visita-photos img {
+            width: 94%;
+            margin: 0 auto 24px;;
+            border-radius: 12px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .visita-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--abl-crimson);
+            margin-bottom: 6px;
+        }
+        .visita-header h1 {
+            margin: 0 0 8px;
+            color: var(--abl-navy);
+        }
+        .visita-meta {
+            display: block;
+            color: #6b6759;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .visita-meta i { margin-right: 6px; color: var(--abl-teal); }
+
+        .visita-section h3 {
+            color: var(--abl-navy);
+            font-size: 19px;
+            margin-top: 34px;
+        }
+        .visita-section ul { padding-left: 20px; }
+        .visita-section li { margin-bottom: 6px; }
+
+        .visita-tag {
+            display: inline-block;
+            background: rgba(21,154,128,.1);
+            color: var(--abl-teal);
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            margin: 0 6px 6px 0;
+        }
+    </style>
+</head>
+
+<body id="visita-detalhe-page">
+
+    <div class="abl-side-frame abl-side-frame-left" aria-hidden="true"></div>
+    <div class="abl-side-frame abl-side-frame-right" aria-hidden="true"></div>
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../index.html"><img src="../../images/ABL_logo_v1_transparent_white_text.png" alt="logo"></a>
+                </div>
+
+                <div class="abl-topbar-stripes" aria-hidden="true">
+                    <span class="abl-topbar-stripe abl-topbar-stripe-green"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-gold"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-crimson"></span>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../../index.html">início</a></li>
+                        <li><a href="../../index.html#about">quem somos</a></li>
+                        <li><a href="../../team.html">equipa</a></li>
+                        <li><a href="../../onde-estivemos.html">onde estivemos</a></li>
+                        <!-- <li><a href="../../artigos.html">artigos</a></li> -->
+                        <li><a href="../../services.html">workshops</a></li>
+                        <!-- <li><a href="../../merch.html">merch</a></li> -->
+                        <li><a href="../../jab.html">JAB</a></li>
+                        <li><a href="../../entrevistas.html">entrevistas</a></li>
+                        <li><a href="../../contactos.html">contactos</a></li>   
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="visita-detalhe">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a class="visita-voltar" href="../../onde-estivemos.html">&larr; Voltar a Onde já estivemos</a>
+                    <div class="visita-photos">
+                        <img src="../../images/onde_estivemos/universidades/physis-week-2025.png" alt="Slide da palestra na Physis Week 2025">
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="visita-header wow fadeInDown">
+                        <span class="visita-eyebrow">Universidades e eventos &middot; Lisboa</span>
+                        <h1>Physis Week 2025</h1>
+                        <span class="visita-meta"><i class="fa-regular fa-calendar"></i>2025</span>
+                        <span class="visita-meta"><i class="fa-solid fa-location-dot"></i>Portugal &middot; localização exata por confirmar</span>
+                    </div>
+
+                    <div class="visita-section">
+                        <span class="visita-tag">Ensino Superior</span>
+                        <span class="visita-tag">Física e Engenharia Física</span>
+
+                        <h3>Sobre o evento</h3>
+                        <p>A convite da Physis, a equipa apresentou uma palestra sobre astrobiologia a estudantes do ensino superior de Física e Engenharia Física de todo o país, na Physis Week 2025.</p>
+                        <h3>O que fizemos</h3>
+                        <ul>
+                            <li>Apresentação sobre astrobiologia com foco na intersecção entre física e ciências da vida</li>
+                            <li>Sessão de perguntas e respostas com os estudantes presentes</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#visita-detalhe-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                    &copy; 2026 AstroBioLusitanos
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/mousescroll.js"></script>
+    <script src="../../js/smoothscroll.js"></script>
+    <script src="../../js/jquery.prettyPhoto.js"></script>
+    <script src="../../js/jquery.isotope.min.js"></script>
+    <script src="../../js/jquery.inview.min.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/custom-scripts.js"></script>
+</body>
+</html>
