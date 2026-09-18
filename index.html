@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" class="abl-intro-lock">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>AstroBioLusitanos</title>
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet"> 
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- ===== Intro animation styles ===== -->
+    <style>
+        :root {
+            --abl-teal: #159a80;
+            --abl-gold: #f2b93c;
+            --abl-crimson: #d1466a;
+            --abl-purple: #4a2f7a;
+            --abl-navy: #1c2a6b;
+            --abl-cream: #f5e7c6;
+        }
+
+        html.abl-intro-lock, html.abl-intro-lock body { overflow: hidden !important; height: 100%; }
+
+        #abl-intro {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(ellipse at center, rgba(5,5,15,0) 0%, rgba(5,5,15,.55) 65%, rgba(5,5,15,.88) 100%),
+                url('images/stars.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+        #abl-intro.abl-intro-fadeout {
+            transition: opacity .45s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* three colour bars that sweep left -> right behind the logo, one at a time */
+        .abl-sweep-bar {
+            position: fixed;
+            left: 0;
+            width: 100vw;
+            height: 12px;
+            border-radius: 3px;
+            opacity: 0;
+            filter: blur(1.5px);
+            mix-blend-mode: screen;
+            transform: translateX(-140vw);
+            -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 150px, #000 210px);
+                    mask-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 150px, #000 210px);
+        }
+        .abl-sweep-green   { top: 62%; background: linear-gradient(90deg, transparent, var(--abl-teal), var(--abl-teal), transparent);
+                              animation: abl-sweep-move .9s linear 1.4s forwards; }
+        .abl-sweep-gold    { top: 50%; background: linear-gradient(90deg, transparent, var(--abl-gold), var(--abl-gold), transparent);
+                              animation: abl-sweep-move .9s linear 1.73s forwards; }
+        .abl-sweep-crimson { top: 38%; background: linear-gradient(90deg, transparent, var(--abl-crimson), var(--abl-crimson), transparent);
+                              animation: abl-sweep-move .9s linear 2.06s forwards; }
+
+        @keyframes abl-sweep-move {
+            0%   { opacity: 0;   transform: translateX(-140vw); }
+            8%   { opacity: .9; }
+            92%  { opacity: .9; }
+            100% { opacity: 0;   transform: translateX(140vw); }
+        }
+
+        #abl-intro-stage {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* rotating halo built from the logo's own colour palette */
+        #abl-color-ring {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg,
+                var(--abl-teal) 0deg 120deg,
+                var(--abl-gold) 120deg 240deg,
+                var(--abl-crimson) 240deg 360deg);
+            filter: blur(18px);
+            opacity: 0;
+            animation:
+                abl-ring-spin 1.8s linear infinite,
+                abl-ring-fade-in .5s ease-out .35s forwards;
+            -webkit-mask: radial-gradient(circle, transparent 52%, #000 60%, #000 78%, transparent 86%);
+                    mask: radial-gradient(circle, transparent 52%, #000 60%, #000 78%, transparent 86%);
+        }
+        @keyframes abl-ring-spin { to { transform: rotate(360deg); } }
+        @keyframes abl-ring-fade-in { to { opacity: .8; } }
+
+        #abl-intro-glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245,231,198,.65) 0%, rgba(242,185,60,.35) 45%, rgba(0,0,0,0) 72%);
+            filter: blur(4px);
+            opacity: 0;
+            animation:
+                abl-glow-in .4s ease-out .1s forwards,
+                abl-glow-pulse 1.6s ease-in-out .55s infinite;
+        }
+        @keyframes abl-glow-in { to { opacity: .5; } }
+        @keyframes abl-glow-pulse {
+            0%, 100% { opacity: .5; transform: scale(1); }
+            50%      { opacity: .9; transform: scale(1.2); }
+        }
+
+        #abl-intro-logo {
+            position: relative;
+            width: 190px;
+            max-width: 55vw;
+            height: auto;
+            opacity: 0;
+            filter: drop-shadow(0 0 20px rgba(242,185,60,.6)) drop-shadow(0 0 40px rgba(21,154,128,.4));
+            will-change: transform, opacity;
+        }
+
+        /* real nav logo stays invisible until the intro hands off to it */
+        .navbar-brand img.abl-nav-logo-hidden { opacity: 0; }
+        .navbar-brand img { transition: opacity .25s ease; }
+
+        @media (prefers-reduced-motion: reduce) {
+            #abl-intro { display: none !important; }
+        }
+
+        /* ===== Top bar: logo at its real size, links flex-centered against it
+                 (replacing the theme's own huge 70px top-padding hack that was
+                 only there to line up short text against a max-height:120px logo),
+                 decorative vertical stripes filling the gap before the menu. */
+        #main-nav.navbar {
+            min-height: 0 !important;
+        }
+        #main-nav > .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        #main-nav .navbar-header {
+            padding: 0 !important;
+        }
+        #main-nav .navbar-brand {
+            padding: 14px 0 !important;
+            margin-left: 0 !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-brand img {
+            max-height: 120px !important; /* the theme's own original logo size, untouched */
+            width: auto !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-nav > li > a {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            font-size: 17px !important;
+            line-height: 1.2 !important;
+        }
+
+        .abl-topbar-stripes { display: none; }
+        @media (min-width: 768px) {
+            #main-nav > .container {
+                display: flex;
+                align-items: center; /* vertically centers the short nav links against the tall logo */
+            }
+            .abl-topbar-stripes {
+                display: flex;
+                flex-direction: column-reverse; /* first DOM item (green) ends up at the bottom */
+                justify-content: center;
+                gap: 5px;
+                flex: 1 1 auto;
+                height: 34px;
+                margin: 0 22px;
+            }
+            .abl-topbar-stripe {
+                width: 100%;
+                height: 6px;
+                border-radius: 2px;
+                flex: 0 0 auto;
+            }
+            .abl-topbar-stripe-green   { background: var(--abl-teal); }
+            .abl-topbar-stripe-gold    { background: var(--abl-gold); }
+            .abl-topbar-stripe-crimson { background: var(--abl-crimson); }
+        }
+
+        /* ===== Body offset: matches the taller navbar now that the logo is full size ===== */
+        body {
+            padding-top: 150px !important;
+            position: relative;
+            background: #ffbb00 !important; /* softer than stark white, shows in any gap around the navbar */
+        }
+        #about {
+            background: #f5f2ea !important; /* same calmer tone under the hero pictures */
+        }
+
+        /* ===== Hero banner: two images (no middle piece yet) with a stripe band
+                 standing in for the missing third panel ===== */
+        #hero-banner.abl-hero-split {
+            height: 420px !important;
+            border-bottom: 0 !important;
+            background: #000 !important;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+        .abl-hero-panel {
+            flex: 1 1 50%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .abl-hero-panel + .abl-hero-panel {
+            border-left: 4px solid #000;
+        }
+        .abl-hero-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .abl-hero-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            z-index: 3;
+            pointer-events: none;
+            padding: 0 20px;
+        }
+        .abl-hero-caption h2 {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 52px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--abl-cream);
+            text-shadow: 0 2px 18px rgba(0,0,0,.65), 0 0 40px rgba(0,0,0,.55);
+        }
+        .abl-hero-caption p {
+            margin: 10px 0 0;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0,0,0,.6);
+        }
+        @media (max-width: 767px) {
+            .abl-hero-caption h2 { font-size: 30px; }
+            .abl-hero-caption p  { font-size: 15px; }
+        }
+        @media (max-width: 767px) {
+            #hero-banner.abl-hero-split { height: 220px !important; }
+        }
+
+        /* ===== Side frame stripes: the intro's starfield, running down both edges
+                 of the page from just under the navbar to the very bottom.
+                 Only shown on wide screens where there's real margin to use. ===== */
+        .abl-side-frame {
+            display: none;
+            position: absolute;
+            top: 150px;
+            bottom: 0;
+            width: 90px;
+            background: #000 url('images/stars.jpg') repeat-y center top;
+            background-size: 100% auto;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .abl-side-frame-left  { left: 0; }
+        .abl-side-frame-right { right: 0; }
+        @media (min-width: 1300px) {
+            .abl-side-frame { display: block; }
+        }
+
+        /* ================= "Últimas Novidades" section ================= */
+        #novidades { padding: 60px 0; background: #f9f7f2; }
+
+        .novidades-layout {
+            display: flex;
+            gap: 26px;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        .novidade-featured {
+            flex: 1 1 480px;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            box-shadow: 0 2px 14px rgba(0,0,0,.06);
+            transition: box-shadow .2s ease, transform .2s ease;
+        }
+        .novidade-featured:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,.1);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .novidade-featured img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+        .novidade-featured-info { padding: 22px 26px 26px; }
+        .novidade-featured-info h3 {
+            margin: 8px 0 10px;
+            color: var(--abl-navy);
+        }
+        .novidade-featured-info p {
+            color: #55534a;
+            margin-bottom: 12px;
+        }
+
+        .novidade-tag {
+            display: inline-block;
+            background: rgba(21,154,128,.12);
+            color: var(--abl-teal);
+            border-radius: 999px;
+            padding: 3px 11px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+        .novidade-date {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: #918e82;
+        }
+
+        .novidade-ticker-wrap {
+            flex: 1 1 320px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 14px rgba(0,0,0,.06);
+            overflow: hidden;
+            position: relative;
+            height: 260px;
+        }
+        .novidade-ticker-wrap::before,
+        .novidade-ticker-wrap::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0;
+            height: 30px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .novidade-ticker-wrap::before { top: 0; background: linear-gradient(#fff, rgba(255,255,255,0)); }
+        .novidade-ticker-wrap::after  { bottom: 0; background: linear-gradient(rgba(255,255,255,0), #fff); }
+
+        .novidade-ticker { height: 100%; overflow: hidden; }
+        .novidade-ticker-list {
+            list-style: none;
+            margin: 0;
+            padding: 14px 0;
+            animation: abl-ticker-scroll 22s linear infinite;
+        }
+        .novidade-ticker:hover .novidade-ticker-list { animation-play-state: paused; }
+        .novidade-ticker-list li { border-bottom: 1px solid rgba(0,0,0,.06); }
+        .novidade-ticker-list a {
+            display: block;
+            padding: 12px 22px;
+            text-decoration: none;
+            color: var(--abl-navy);
+        }
+        .novidade-ticker-list a:hover strong { color: var(--abl-crimson); }
+        .novidade-ticker-list strong {
+            display: block;
+            font-size: 14px;
+            margin-top: 4px;
+            color: var(--abl-navy);
+        }
+
+        @keyframes abl-ticker-scroll {
+            0%   { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @media (max-width: 767px) {
+            .novidade-ticker-wrap { display: none; }
+        }
+
+        /* ================= Contact section: original orange theme, compact single row ================= */
+        #contact-us {
+            padding: 30px 0 !important;
+        }
+        .contact-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .contact-flex .contact-title {
+            margin: 0;
+            color: #000;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            flex: 0 0 auto;
+        }
+        .contact-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 26px;
+            flex: 1 1 auto;
+            justify-content: flex-end;
+        }
+        .contact-links a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .contact-links a:hover { color: #05715d; }
+        .contact-links .btn-primary { white-space: nowrap; }
+        @media (max-width: 600px) {
+            .contact-flex { justify-content: center; text-align: center; }
+            .contact-links { justify-content: center; }
+        }
+    </style>
+</head> 
+
+<body id="home">
+
+    <!-- ===== Intro animation overlay ===== -->
+    <div id="abl-intro">
+        <div class="abl-sweep-bar abl-sweep-green"></div>
+        <div class="abl-sweep-bar abl-sweep-gold"></div>
+        <div class="abl-sweep-bar abl-sweep-crimson"></div>
+        <div id="abl-intro-stage">
+            <div id="abl-color-ring"></div>
+            <div id="abl-intro-glow"></div>
+            <img id="abl-intro-logo" src="images/ABL_logo_v1_transparent_white_text.png" alt="AstroBioLusitanos">
+        </div>
+    </div>
+
+    <div class="abl-side-frame abl-side-frame-left" aria-hidden="true"></div>
+    <div class="abl-side-frame abl-side-frame-right" aria-hidden="true"></div>
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img class="abl-nav-logo-hidden" src="images/ABL_logo_v1_transparent_white_text.png" alt="logo"></a>
+                    <noscript><style>.abl-nav-logo-hidden{opacity:1 !important;} #abl-intro{display:none !important;}</style></noscript>
+                </div>
+
+                <div class="abl-topbar-stripes" aria-hidden="true">
+                    <span class="abl-topbar-stripe abl-topbar-stripe-green"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-gold"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-crimson"></span>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll active"><a href="#home">início</a></li> 
+                        <li class="scroll"><a href="#about">quem somos</a></li>
+                        <li><a href="team.html">equipa</a></li>
+                        <li><a href="onde-estivemos.html">onde estivemos</a></li>
+                        <!-- <li><a href="artigos.html">artigos</a></li> -->
+                        <li><a href="services.html">workshops</a></li>
+                        <!-- <li><a href="merch.html">merch</a></li> -->
+                        <li><a href= "jab.html">AE<sup>2</sup>M</a></li>
+                        <li><a href="entrevistas.html">entrevistas</a></li>
+                        <li><a href="contactos.html">contactos</a></li>     
+                                           
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="hero-banner" class="abl-hero-split">
+        <div class="abl-hero-panel">
+            <img src="images/Intro_Astrobio_Passado.png" alt="AstroBioLusitanos - o passado da vida no Universo">
+        </div>
+        <div class="abl-hero-panel">
+            <img src="images/Intro_Astrobio_Futuro.png" alt="AstroBioLusitanos - o futuro da vida no Universo">
+        </div>
+        <div class="abl-hero-caption">
+            <h2>Astrobiologia</h2>
+            <p>Há espaço para todos</p>
+        </div>
+    </section><!--/#hero-banner-->
+
+ <section id="about">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown">quem somos</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                    <p><strong>Os AstroBioLusitanos são uma equipa de jovens cientistas portugueses dedicados à área da Astrobiologia!</strong></p>
+                    <p>O nosso principal objetivo é ajudar estudantes, e o público em geral, a explorar os diversos campos científicos associados à Astrobiologia e Ciências do Espaço, destacando as múltiplas oportunidades de carreira nesta área.</p>
+                    <p>Através do nosso Instagram 
+                        <a href="https://www.instagram.com/astrobiopt/" target="_blank" class="instagram-link">
+                            <strong>@astrobiopt</strong>,
+                        </a> e de workshops e apresentações em escolas, comunicamos ciência de forma simples, acessível e divertida, de forma a inspirar jovens portugueses a seguirem carreiras nas ciências espaciais e promovendo a presença de Portugal na comunidade global de Astrobiologia.</p>
+                </div>
+
+                <div class="col-sm-6 wow fadeInRight">
+                  <img class="img-responsive" src="images/quem_somos.png" alt="">
+                </div>
+
+            </div>
+        </div>
+    </section><!--/#about-->
+
+    <section id="novidades">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown">Últimas Novidades</h2>
+                <p class="wow fadeInDown">O que a equipa tem feito recentemente.</p>
+            </div>
+
+            <div class="novidades-layout">
+                <a href="onde_estivemos/escolas/escola-dom-pedro-iv-mindelo.html" class="novidade-featured wow fadeInLeft">
+                    <img src="images/onde_estivemos/escolas/dom-pedro-iv-mindelo-2026.jpg" alt="Sessão na Escola D. Pedro IV, Mindelo">
+                    <div class="novidade-featured-info">
+                        <span class="novidade-tag">Escolas</span>
+                        <h3>Como é ser astrobiólogo?</h3>
+                        <p>Fomos até à Escola D. Pedro IV, em Mindelo, conversar com alunos do 9.º ano sobre o que é a astrobiologia, o nosso percurso na ciência e como também eles podem seguir este caminho.</p>
+                        <span class="novidade-date">29 de março de 2026</span>
+                    </div>
+                </a>
+
+                <div class="novidade-ticker-wrap">
+                    <div class="novidade-ticker">
+                        <ul class="novidade-ticker-list">
+                            <li><a href="onde_estivemos/escolas/escola-secundaria-daniel-faria-paredes.html"><span class="novidade-tag">Escolas</span><strong>O que levar para viver na Lua?</strong><span class="novidade-date">27 de março de 2026</span></a></li>
+                            <li><a href="onde_estivemos/universidades/evento-enef-2026-coimbra.html"><span class="novidade-tag">Eventos</span><strong>ENEF 2026, Universidade de Coimbra</strong><span class="novidade-date">Fevereiro de 2026</span></a></li>
+                            <li><a href="onde_estivemos/escolas/escola-secundaria-carlos-amarante-braga.html"><span class="novidade-tag">Escolas</span><strong>Dia aberto na Secundária Carlos Amarante</strong><span class="novidade-date">27 de janeiro de 2026</span></a></li>
+                            <li><a href="onde_estivemos/universidades/evento-spacesuite-nova-fct.html"><span class="novidade-tag">Universidades</span><strong>SpaceSUITE, na NOVA FCT</strong><span class="novidade-date">16 de dezembro de 2025</span></a></li>
+                            <li><a href="onde_estivemos/universidades/universidade-aveiro-aettua.html"><span class="novidade-tag">Universidades</span><strong>Workshop "Perdidos no Espaço", Aveiro</strong><span class="novidade-date">27 de novembro de 2025</span></a></li>
+                            <li><a href="entrevistas/entrevista-pedro-machado.html"><span class="novidade-tag">Entrevistas</span><strong>AstroBioEstrela: Pedro Machado</strong><span class="novidade-date">28 de abril de 2026</span></a></li>
+                            <li aria-hidden="true"><a href="onde_estivemos/escolas/escola-secundaria-daniel-faria-paredes.html"><span class="novidade-tag">Escolas</span><strong>O que levar para viver na Lua?</strong><span class="novidade-date">27 de março de 2026</span></a></li>
+                            <li aria-hidden="true"><a href="onde_estivemos/universidades/evento-enef-2026-coimbra.html"><span class="novidade-tag">Eventos</span><strong>ENEF 2026, Universidade de Coimbra</strong><span class="novidade-date">Fevereiro de 2026</span></a></li>
+                            <li aria-hidden="true"><a href="onde_estivemos/escolas/escola-secundaria-carlos-amarante-braga.html"><span class="novidade-tag">Escolas</span><strong>Dia aberto na Secundária Carlos Amarante</strong><span class="novidade-date">27 de janeiro de 2026</span></a></li>
+                            <li aria-hidden="true"><a href="onde_estivemos/universidades/evento-spacesuite-nova-fct.html"><span class="novidade-tag">Universidades</span><strong>SpaceSUITE, na NOVA FCT</strong><span class="novidade-date">16 de dezembro de 2025</span></a></li>
+                            <li aria-hidden="true"><a href="onde_estivemos/universidades/universidade-aveiro-aettua.html"><span class="novidade-tag">Universidades</span><strong>Workshop "Perdidos no Espaço", Aveiro</strong><span class="novidade-date">27 de novembro de 2025</span></a></li>
+                            <li aria-hidden="true"><a href="entrevistas/entrevista-pedro-machado.html"><span class="novidade-tag">Entrevistas</span><strong>AstroBioEstrela: Pedro Machado</strong><span class="novidade-date">28 de abril de 2026</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#novidades-->
+
+    <section id="contact-us">
+        <div class="container">
+            <div class="contact-flex wow fadeInDown">
+                <h2 class="contact-title">Contacto</h2>
+                <div class="contact-links">
+                    <a href="mailto:astrobiolusitanos@gmail.com"><i class="fa-regular fa-envelope"></i> astrobiolusitanos@gmail.com</a>
+                    <a href="https://www.instagram.com/astrobiopt" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @astrobiopt</a>
+                    <a href="contactos.html" class="btn btn-primary">Quero que a ABL vá à minha escola</a>
+                </div>
+            </div>
+        </div>
+    </section><!--/#contact-us-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                    &copy; 2026 AstroBioLusitanos</a>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom-scripts.js"></script>
+
+    <!-- ===== Intro animation logic ===== -->
+    <script>
+    (function () {
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var alreadyPlayed = false;
+        try { alreadyPlayed = sessionStorage.getItem('ablIntroPlayed') === '1'; } catch (e) {}
+
+        var htmlEl = document.documentElement;
+        var overlay = document.getElementById('abl-intro');
+        var navLogo = document.querySelector('.navbar-brand img');
+
+        function unlockPage() { htmlEl.classList.remove('abl-intro-lock'); }
+
+        function skipIntro() {
+            if (overlay) overlay.style.display = 'none';
+            if (navLogo) navLogo.classList.remove('abl-nav-logo-hidden');
+            unlockPage();
+        }
+
+        if (!overlay || !navLogo || typeof navLogo.animate !== 'function') { skipIntro(); return; }
+        if (reduceMotion || alreadyPlayed) { skipIntro(); return; }
+
+        try { sessionStorage.setItem('ablIntroPlayed', '1'); } catch (e) {}
+
+        var flyingLogo = document.getElementById('abl-intro-logo');
+        var ring = document.getElementById('abl-color-ring');
+        var glow = document.getElementById('abl-intro-glow');
+
+        requestAnimationFrame(function () {
+            var logoRect = flyingLogo.getBoundingClientRect();
+            var targetRect = navLogo.getBoundingClientRect();
+
+            var logoCenterX = logoRect.left + logoRect.width / 2;
+            var logoCenterY = logoRect.top + logoRect.height / 2;
+            var targetCenterX = targetRect.left + targetRect.width / 2;
+            var targetCenterY = targetRect.top + targetRect.height / 2;
+
+            var dx = targetCenterX - logoCenterX;
+            var dy = targetCenterY - logoCenterY;
+            var scale = targetRect.width > 0 ? (targetRect.width / logoRect.width) : 0.25;
+
+            // scale for the two intermediate "in transit" frames (translate progresses linearly)
+            var scaleMid1 = 1 + (scale - 1) / 3;
+            var scaleMid2 = 1 + (scale - 1) * 2 / 3;
+            var dx1 = dx / 3,     dy1 = dy / 3;
+            var dx2 = dx * 2 / 3, dy2 = dy * 2 / 3;
+
+            // timeline (ms): pop-in -> settle -> HOLD (1s) -> one turn (base speed) ->
+            // fly to corner while accelerating (1.33x -> 1.67x -> 2x) -> one last turn at the corner (2x)
+            var T = 3050;
+            var flight = flyingLogo.animate([
+                { offset: 0,        opacity: 0, transform: 'translate(0px,0px) scale(.3) rotate(-30deg)',  easing: 'cubic-bezier(.34,1.56,.64,1)' },
+                { offset: 220 / T,  opacity: 1, transform: 'translate(0px,0px) scale(1.08) rotate(6deg)',  easing: 'ease-out' },   // pop overshoot
+                { offset: 400 / T,  opacity: 1, transform: 'translate(0px,0px) scale(1) rotate(0deg)',     easing: 'linear' },     // settle
+                { offset: 1400 / T, opacity: 1, transform: 'translate(0px,0px) scale(1) rotate(0deg)',     easing: 'linear' },     // hold, ~1s
+                { offset: 2100 / T, opacity: 1, transform: 'translate(0px,0px) scale(1) rotate(360deg)',   easing: 'linear' },     // the one turn, done
+                { offset: 2300 / T, opacity: 1, transform: 'translate(' + dx1 + 'px,' + dy1 + 'px) scale(' + scaleMid1 + ') rotate(497.1deg)',  easing: 'linear' },
+                { offset: 2500 / T, opacity: 1, transform: 'translate(' + dx2 + 'px,' + dy2 + 'px) scale(' + scaleMid2 + ') rotate(668.6deg)',  easing: 'linear' },
+                { offset: 2700 / T, opacity: 1, transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + scale + ') rotate(874.3deg)', easing: 'linear' },  // landed
+                { offset: 1,        opacity: 1, transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + scale + ') rotate(1234.3deg)' } // last turn at 2x, in place
+            ], { duration: T, fill: 'forwards' });
+
+            // ring + glow hold through the wait and the single turn, then fade out as it takes off
+            [ring, glow].forEach(function (el) {
+                var currentOpacity = getComputedStyle(el).opacity;
+                el.animate([
+                    { opacity: currentOpacity, offset: 0 },
+                    { opacity: currentOpacity, offset: 2100 / T },
+                    { opacity: 0,              offset: 2700 / T },
+                    { opacity: 0,              offset: 1 }
+                ], { duration: T, fill: 'forwards' });
+            });
+
+            var safetyTimer = setTimeout(finish, 3500);
+            function finish() {
+                clearTimeout(safetyTimer);
+                navLogo.classList.remove('abl-nav-logo-hidden');
+                overlay.classList.add('abl-intro-fadeout');
+                unlockPage();
+                setTimeout(function () { overlay.style.display = 'none'; }, 500);
+            }
+            flight.onfinish = finish;
+        });
+    })();
+    </script>
+</body>
+</html>
