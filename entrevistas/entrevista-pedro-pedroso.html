@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>AstroBioLusitanos | Pedro Pedroso</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../images/ico/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --abl-teal: #159a80;
+            --abl-gold: #f2b93c;
+            --abl-crimson: #d1466a;
+        }
+        /* ===== Shared top-bar treatment (same as index.html / onde-estivemos.html) =====
+           Only the navbar is touched here — everything else on this page is untouched. */
+        body { padding-top: 150px !important; }
+        #main-nav.navbar { min-height: 0 !important; }
+        #main-nav > .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        #main-nav .navbar-header { padding: 0 !important; }
+        #main-nav .navbar-brand {
+            padding: 14px 0 !important;
+            margin-left: 0 !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-brand img {
+            max-height: 120px !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-nav > li > a {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            font-size: 17px !important;
+            line-height: 1.2 !important;
+        }
+        .abl-topbar-stripes { display: none; }
+        @media (min-width: 768px) {
+            #main-nav > .container { display: flex; align-items: center; }
+            .abl-topbar-stripes {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 5px;
+                flex: 1 1 auto;
+                height: 34px;
+                margin: 0 22px;
+            }
+            .abl-topbar-stripe { width: 100%; height: 6px; border-radius: 2px; flex: 0 0 auto; }
+            .abl-topbar-stripe-green   { background: var(--abl-teal); }
+            .abl-topbar-stripe-gold    { background: var(--abl-gold); }
+            .abl-topbar-stripe-crimson { background: var(--abl-crimson); }
+        }
+    </style>
+</head>
+
+<body id="entrevista-detalhe-page">
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.html"><img src="../images/ABL_logo_v1_transparent_white_text.png" alt="logo"></a>
+                </div>
+                <div class="abl-topbar-stripes" aria-hidden="true">
+                    <span class="abl-topbar-stripe abl-topbar-stripe-green"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-gold"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-crimson"></span>
+                </div>
+<div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../index.html">início</a></li>
+                        <li><a href="../index.html#about">quem somos</a></li>
+                        <li><a href="../team.html">equipa</a></li>
+                        <li><a href="../onde-estivemos.html">onde estivemos</a></li>
+                        <!-- <li><a href="../artigos.html">artigos</a></li> -->
+                        <li><a href="../services.html">workshops</a></li>
+                        <!-- <li><a href="../merch.html">merch</a></li> -->
+                        <li><a href="../jab.html">AE<sup>2</sup>M</a></li>
+                        <li><a href="../entrevistas.html">entrevistas</a></li>
+                        <li><a href="../contactos.html">contactos</a></li>    
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="entrevista-detalhe">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a class="entrevista-voltar" href="../entrevistas.html">&larr; Voltar a Entrevistas</a>
+                    <img class="entrevista-foto" src="../images/entrevistas/pedro-pedroso.png" alt="Pedro Pedroso">
+                </div>
+                <div class="col-sm-8">
+                    <div class="entrevista-header wow fadeInDown">
+                        <span class="eyebrow-dark">AstroBioEstrela</span>
+                        <h1>Pedro Pedroso</h1>
+                        <span class="entrevista-area">Controlo de Tráfego Aéreo &amp; Missões Análogas &middot; NAV Portugal</span>
+                        <!-- TODO: atualizar data e link do Instagram -->
+                        <a class="entrevista-data" href="#" target="_blank" rel="noopener">Publicado a [data] &middot; ver no Instagram</a>
+                    </div> 
+                    <p class="entrevista-bio">Atualmente, sou <strong>controlador de tráfego aéreo</strong> na <strong>NAV Portugal</strong>, onde trabalho desde 2004 nas valências de área, aproximação, aeródromo, supervisão e formação, tendo <strong>formação base em Engenharia Aeroespacial</strong>. A minha forte ligação à exploração espacial levou-me a <strong>participar em várias missões análogas internacionais</strong>, passando pelo <strong>Havai (EMMIHS 2023)</strong>, pela equipa de controlo de missão na <strong>Áustria (AMADEE-24)</strong> e pela <strong>Polónia (AATC Analog Colony I e missão Terra Nova, na estação LunAres)</strong>. Ao longo deste percurso, tive o privilégio de <strong>comandar o habitat análogo de Monsaraz</strong> em outubro de 2025, no âmbito da <strong>World’s Biggest Analog</strong>, com o objetivo de impulsionar o desenvolvimento das missões análogas em Portugal e preparar o caminho para a futura <strong>missão AMADEE-27</strong>.</p>
+                </div>
+            </div>
+
+            <div class="row"><div class="col-sm-10 col-sm-offset-1">
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Que acontecimento levou um controlador aéreo até às missões análogas?</p>
+                <p class="resposta">A engenharia aeroespacial sempre fez parte do meu percurso, embora profissionalmente tenha seguido pelo controlo de tráfego aéreo. Em 2021, quando a ESA abriu candidaturas para astronautas, percebi que preenchia os requisitos e candidatei-me, juntamente com outros 22.500 europeus. <strong>Não fui selecionado, mas a experiência levou-me a procurar outras formas de contribuir</strong> para a exploração espacial. Foi assim que descobri as missões análogas, através do Austrian Space Forum, e pouco depois estava a caminho do Havai para a minha primeira missão. Percebi que <strong>não precisava de ser astronauta para fazer parte desta aventura</strong>: a exploração espacial é um esforço coletivo, e há muitas formas de contribuir.</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Hawai, Polónia, Alentejo: qual foi a missão que mais te pôs à prova?</p>
+                <p class="resposta">Todas me desafiaram de formas diferentes. No Havai, a minha primeira missão, o maior desafio foi <strong>perceber se aquele era realmente o meu lugar</strong>. Na Polónia, como líder da equipa de EVA, tive de encontrar soluções logísticas para que os 30 astronautas análogos pudessem realizar pelo menos uma atividade extraveicular. Na LunAres, numa missão de 21 dias, foram <strong>as dinâmicas humanas</strong> que mais me puseram à prova. Finalmente, em Monsaraz, como comandante, a responsabilidade passou a ser global: das operações à gestão da equipa. Acho que <strong>a dificuldade foi crescendo à medida que as responsabilidades também cresceram</strong>!</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Monsaraz foi a primeira missão análoga em habitat em Portugal. O que significou comandá-la? Foi fácil liderar a equipa?</p>
+                <p class="resposta">Foi uma mistura de <strong>entusiasmo, orgulho e responsabilidade</strong>... e uma dose saudável de síndrome do impostor! Planear o horário de todas as atividades e preparar quatro pessoas que nunca tinham participado numa missão análoga para viverem juntas durante 13 dias foi um desafio. Felizmente, tive uma equipa extraordinária. <strong>Os briefings, os debriefings e a transparência nas decisões foram fundamentais.</strong> Os anos no controlo de tráfego aéreo também ajudaram: <strong>liderar é conhecer as pessoas, perceber as suas forças e limitações e criar condições para que a equipa funcione</strong>. Com esta equipa, foi surpreendentemente fácil!</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Para ti, o que é a astrobiologia?</p>
+                <p class="resposta">Para mim, é <strong>a procura de vida para além da Terra</strong>. Talvez comecemos por encontrar microrganismos escondidos nas rochas ou no subsolo de outro mundo, mas isso abriria portas a uma das grandes questões da humanidade: estaremos sozinhos no Universo? E há algo fascinante nisto: ao tentarmos compreender se existe vida noutros planetas, <strong>acabamos também por compreender melhor a vida na Terra</strong> e os limites em que ela consegue sobreviver.</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Que papel tem a astrobiologia numa missão análoga?</p>
+                <p class="resposta">Uma missão análoga pode ajudar a <strong>testar protocolos de recolha e análise de amostras</strong> que poderão ser usados em futuras missões planetárias. Mas a investigação vai muito além da astrobiologia: inclui geologia, biologia, psicologia, robótica, engenharia e fatores humanos. E há uma ideia importante: <strong>uma missão análoga em que algo corre mal pode ser extremamente bem-sucedida</strong>. Tudo o que aprendermos com as falhas na Terra pode ajudar-nos a evitar que se repitam quando estivermos realmente noutro mundo.</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">O que falta em Portugal para que a astrobiologia e as missões análogas sejam mais valorizadas?</p>
+                <p class="resposta">Portugal tem talento e capacidade, mas <strong>o investimento financeiro e logístico continua a ser limitado</strong>. Precisamos de dar mais visibilidade pública à exploração espacial e de criar condições para que as iniciativas tenham continuidade. A missão de Monsaraz e a preparação da AMADEE-27 são passos importantes nesse sentido. Idealmente, deveríamos ter <strong>uma estratégia nacional concertada, com o apoio da Agência Espacial Portuguesa</strong>, que promovesse todas as vertentes da exploração espacial. Só assim poderemos garantir um crescimento equilibrado e sustentável do setor.</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Respirar dentro de água ou voar? Qual superpoder escolhias?</p>
+                <p class="resposta">Levo mais de 20 anos a dar autorizações a quem voa. <strong>O espaço aéreo já está demasiado congestionado!</strong> Se é para mudar, que seja para debaixo de água. Tanto quanto sei, por lá ainda não há controladores a limitar os nossos movimentos! 😄</p>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Que conselho dás a quem gostaria de participar numa missão análoga?</p>
+                <p class="resposta"><strong>Não esperes por teres o currículo perfeito</strong>: investe nas coisas que realmente te motivam, aprende, experimenta e diversifica as tuas experiências. Sem dares por isso, podes acabar por construir o perfil certo para um projeto que sempre te pareceu inalcançável. Conhecimentos técnicos ajudam, claro, mas com <strong>iniciativa, vontade de aprender, adaptabilidade e capacidade de trabalhar em equipa</strong>, não há limites para o que podemos alcançar.</p>
+            </div>
+            </div></div>
+
+        </div>
+    </section><!--/#entrevista-detalhe-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                    &copy; 2026 AstroBioLusitanos
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mousescroll.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/jquery.isotope.min.js"></script>
+    <script src="../js/jquery.inview.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/custom-scripts.js"></script>
+</body>
+</html>

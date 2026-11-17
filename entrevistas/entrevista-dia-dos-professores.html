@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webthemez">
+    <title>AstroBioLusitanos | Dia dos Professores</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../images/ico/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --abl-teal: #159a80;
+            --abl-gold: #f2b93c;
+            --abl-crimson: #d1466a;
+        }
+        /* ===== Shared top-bar treatment (same as index.html / onde-estivemos.html) =====
+           Only the navbar is touched here — everything else on this page is untouched. */
+        body { padding-top: 150px !important; }
+        #main-nav.navbar { min-height: 0 !important; }
+        #main-nav > .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+        #main-nav .navbar-header { padding: 0 !important; }
+        #main-nav .navbar-brand {
+            padding: 14px 0 !important;
+            margin-left: 0 !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-brand img {
+            max-height: 120px !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        #main-nav .navbar-nav > li > a {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            font-size: 17px !important;
+            line-height: 1.2 !important;
+        }
+        .abl-topbar-stripes { display: none; }
+        @media (min-width: 768px) {
+            #main-nav > .container { display: flex; align-items: center; }
+            .abl-topbar-stripes {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                gap: 5px;
+                flex: 1 1 auto;
+                height: 34px;
+                margin: 0 22px;
+            }
+            .abl-topbar-stripe { width: 100%; height: 6px; border-radius: 2px; flex: 0 0 auto; }
+            .abl-topbar-stripe-green   { background: var(--abl-teal); }
+            .abl-topbar-stripe-gold    { background: var(--abl-gold); }
+            .abl-topbar-stripe-crimson { background: var(--abl-crimson); }
+        }
+        /* ===== Entrevista coletiva: várias pessoas por pergunta ===== */
+        .participantes { margin: 10px 0 40px; }
+        .participante-card { margin-bottom: 18px; padding-left: 14px; border-left: 4px solid var(--abl-teal); }
+        .participante-card:nth-child(3n+2) { border-left-color: var(--abl-gold); }
+        .participante-card:nth-child(3n+3) { border-left-color: var(--abl-crimson); }
+        .participante-card strong { display: block; font-size: 17px; }
+        .participante-card span { display: block; font-size: 14px; opacity: .8; line-height: 1.35; }
+        .resposta-item { margin: 0 0 22px; padding-left: 16px; border-left: 3px solid var(--abl-teal); }
+        .resposta-item:nth-of-type(3n+2) { border-left-color: var(--abl-gold); }
+        .resposta-item:nth-of-type(3n+3) { border-left-color: var(--abl-crimson); }
+        .resposta-item .resposta { margin-bottom: 6px; }
+        .resposta-autor { display: block; font-size: 14px; opacity: .85; line-height: 1.35; }
+        .resposta-autor strong { font-size: 15px; }
+    </style>
+</head>
+
+<body id="entrevista-detalhe-page">
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.html"><img src="../images/ABL_logo_v1_transparent_white_text.png" alt="logo"></a>
+                </div>
+                <div class="abl-topbar-stripes" aria-hidden="true">
+                    <span class="abl-topbar-stripe abl-topbar-stripe-green"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-gold"></span>
+                    <span class="abl-topbar-stripe abl-topbar-stripe-crimson"></span>
+                </div>
+<div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../index.html">início</a></li>
+                        <li><a href="../index.html#about">quem somos</a></li>
+                        <li><a href="../team.html">equipa</a></li>
+                        <li><a href="../onde-estivemos.html">onde estivemos</a></li>
+                        <!-- <li><a href="../artigos.html">artigos</a></li> -->
+                        <li><a href="../services.html">workshops</a></li>
+                        <!-- <li><a href="../merch.html">merch</a></li> -->
+                        <li><a href="../jab.html">AE<sup>2</sup>M</a></li>
+                        <li><a href="../entrevistas.html">entrevistas</a></li>
+                        <li><a href="../contactos.html">contactos</a></li>    
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="entrevista-detalhe">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <a class="entrevista-voltar" href="../entrevistas.html">&larr; Voltar a Entrevistas</a>
+                    <div class="entrevista-header wow fadeInDown">
+                        <span class="eyebrow-dark">Dia dos Professores</span>
+                        <h1>Dia dos professores com as entrevistas na íntegra</h1>
+                        <span class="entrevista-area">Texto: Carlos</span>
+                        <!-- TODO: atualizar data e link do Instagram -->
+                        <a class="entrevista-data" href="#" target="_blank" rel="noopener">Publicado a [data] &middot; ver no Instagram</a>
+                    </div>
+                    <div class="participantes">
+                        <div class="row">
+                <div class="col-sm-4"><div class="participante-card"><strong>Ana Braga</strong><span>Docente Universitária, Universidade do Minho, Braga</span></div></div>
+                <div class="col-sm-4"><div class="participante-card"><strong>Paula Pimentel</strong><span>Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span></div></div>
+                <div class="col-sm-4"><div class="participante-card"><strong>Joana Pimentel</strong><span>Educadora de Infância, Agrupamento de escolas André Soares, Braga</span></div></div>
+                <div class="col-sm-4"><div class="participante-card"><strong>João Gomes</strong><span>Diretor Pedagógico, Colégio Valsassina, Lisboa</span></div></div>
+                <div class="col-sm-4"><div class="participante-card"><strong>José Mota</strong><span>Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span></div></div>
+                <div class="col-sm-4"><div class="participante-card"><strong>Maria Perfeito</strong><span>Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row"><div class="col-sm-10 col-sm-offset-1">
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">O que gostaria que os alunos levassem consigo depois de uma aula, mesmo muitos anos depois de saírem da escola?</p>
+                <div class="resposta-item">
+                    <p class="resposta">“Gostaria que para além do conhecimento transmitido, levassem curiosidade para procurar “alimentar” este conhecimento ao longo do tempo.”</p>
+                    <span class="resposta-autor"><strong>Ana Braga</strong> &middot; Docente Universitária, Universidade do Minho, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Gostaria que soubessem questionar, que fossem capazes de analisar a informação obtida. Que tivessem espírito crítico.”</p>
+                    <span class="resposta-autor"><strong>Paula Pimentel</strong> &middot; Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Depois de estarem comigo, eu gostava que os meus meninos levassem para a vida toda a curiosidade pelo mundo que trazem com eles. Gostava também que levassem as formas criativas de descobrir e o pensamento crítico sobre essas conclusões. Eu imagino que o futuro deles, e a forma como eles imaginam o futuro deles, seja construído através de experiências que eles fazem agora.”</p>
+                    <span class="resposta-autor"><strong>Joana Pimentel</strong> &middot; Educadora de Infância, Agrupamento de escolas André Soares, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Que se sintam desafiados e, sobretudo, curiosos. Que uma aula não termine quando saem da sala, mas continue a despertar perguntas, ideias e vontade de saber mais. Gostaria que não se conformassem com a primeira resposta, mas que se sentissem motivados para questionar, experimentar, procurar novos caminhos e testar possibilidades. E que compreendessem que errar também faz parte de aprender.</p>
+                    <p class="resposta">Se, muitos anos depois, ainda sentirem vontade de perguntar “E se…?”, “Porquê?” ou “Como?”, então algo importante ficou dessa aula.”</p>
+                    <span class="resposta-autor"><strong>João Gomes</strong> &middot; Diretor Pedagógico, Colégio Valsassina, Lisboa</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“O sentimento de que foi tempo bem aproveitado, que foi de algum modo significativo e relevante para a sua aprendizagem e/ou o seu desenvolvimento pessoal. Também que foi algo positivo no seu dia e que tornou o seu dia melhor.”</p>
+                    <span class="resposta-autor"><strong>José Mota</strong> &middot; Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Aprender é bom!!!! O espanto/o fascínio perante a Natureza. A curiosidade por tudo o que a integra. Muitos anos depois, ao olharem para uma qualquer paisagem ou para um simples vaso em que puseram uma semente a germinar, ainda pensem/digam: “A Natureza é fascinante!”.</p>
+                    <p class="resposta">E que não esqueçam: O conhecimento torna-nos livres!</p>
+                    <p class="resposta">(Porque somos capazes de fazer opções, ter espírito crítico, perseguir caminhos e futuros que imaginamos nossos.).”</p>
+                    <span class="resposta-autor"><strong>Maria Perfeito</strong> &middot; Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span>
+                </div>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">De que forma um professor pode mudar a forma como um aluno imagina o seu próprio futuro?</p>
+                <div class="resposta-item">
+                    <p class="resposta">“O professor tem a função de guiar o aluno na busca de conhecimento para criar as suas próprias guidelines para a construção do seu futuro.”</p>
+                    <span class="resposta-autor"><strong>Ana Braga</strong> &middot; Docente Universitária, Universidade do Minho, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Um professor tem a possibilidade de plantar sonhos e os seus alunos acreditar que é possível alcançá-los. Um professor permite que o aluno perceba que o conhecimento é a sua maior arma.”</p>
+                    <span class="resposta-autor"><strong>Paula Pimentel</strong> &middot; Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“O professor ou educador pode mudar esta forma porque abre portas, janelas e caminhos a vivências que eles não imaginavam que poderiam ter, ou seja, quando nós não conhecemos o mundo e tudo é uma experiência e tudo é uma vivência e tudo é incrível e fantástico, tudo é um potencial de magia então todas as portas e caminhos que abrimos podem levar a novas descobertas e novas aventuras. Então, observá-los a descobrirem e a imaginarem estes novos futuros para eles próprios é incrível. É nesse caminho que eu tento trabalhar.”</p>
+                    <span class="resposta-autor"><strong>Joana Pimentel</strong> &middot; Educadora de Infância, Agrupamento de escolas André Soares, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Um professor deve ser um elemento de referência, um exemplo, pela positiva ou pela negativa.</p>
+                    <p class="resposta">Um professor pode ajudar um aluno a descobrir possibilidades que ainda não tinha imaginado para si próprio. Pode despertar interesses, reconhecer capacidades que o próprio ainda não vê e, sobretudo, transmitir confiança para que se atreva a experimentar e a ir mais longe.</p>
+                    <p class="resposta">Às vezes, uma palavra de incentivo, uma pergunta no momento certo ou alguém que acredita nas nossas capacidades pode mudar a forma como imaginamos o futuro. Um professor pode ser precisamente essa pessoa: alguém que abre portas, amplia horizontes e ajuda cada aluno a perceber que o seu futuro pode ter mais possibilidades do que inicialmente imaginava.”</p>
+                    <span class="resposta-autor"><strong>João Gomes</strong> &middot; Diretor Pedagógico, Colégio Valsassina, Lisboa</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Penso que atualmente isso passará muito por desdramatizar a forma como o aluno olha para o que poderá ser o seu futuro num mundo cada vez mais instável em que os perigos parecem ser muito maiores do que as oportunidades. Ajudá-lo a compreender que é bom ter um plano, mas que as circunstâncias da vida poderão levar a grandes alterações nesse plano, e que o mais importante é focar-se no presente e no futuro próximo, passo a passo, sendo capaz de se ir adaptando às mudanças e a novos desafios; e sobretudo ter confiança em si mesmo e na sua capacidade de construir um futuro que o satisfaça.”</p>
+                    <span class="resposta-autor"><strong>José Mota</strong> &middot; Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Permitindo que descubram áreas de interesse.</p>
+                    <p class="resposta">Proporcionando o desenvolvimento de autoconfiança.”</p>
+                    <span class="resposta-autor"><strong>Maria Perfeito</strong> &middot; Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span>
+                </div>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Qual é o papel de um professor na formação de futuros cientistas?</p>
+                <div class="resposta-item">
+                    <p class="resposta">“O papel do professor na formação de futuros cientistas é saber ouvir e orientar as ideias dos alunos.”</p>
+                    <span class="resposta-autor"><strong>Ana Braga</strong> &middot; Docente Universitária, Universidade do Minho, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“O professor será aquela pessoa que permitirá desenvolver o gosto pelo saber, pelo querer ir mais além, desenvolver competências de investigação. Se a semente for bem plantada, um cientista nascerá.”</p>
+                    <span class="resposta-autor"><strong>Paula Pimentel</strong> &middot; Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Acho que nós termos na sala, na minha sala concretamente, espaços onde se pode fazer ciência, ainda que com materiais muito rudimentares, pode ser super importante e super influenciador. Estes pequenos cientistas nascem dessas experiências que fazem, ou com água, ou com pinças, lupas, pipetas e coisas assim e isto leva para perguntas: “O que é que posso fazer mais com isto?” e “Se eu fizer assim, o que é que eu trago daqui?”. Portanto, ter um espaço de ciências constante na sala, além de ser um espaço muito querido e apreciado pelos miúdos, é também uma forma de os motivar a fazer perguntas sobre o que os rodeia, a experimentar o mundo, a levantar hipóteses e a tentar descobrir algumas respostas.”</p>
+                    <span class="resposta-autor"><strong>Joana Pimentel</strong> &middot; Educadora de Infância, Agrupamento de escolas André Soares, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“O papel de um professor na formação de futuros cientistas começa, antes de mais, por provocar a curiosidade. Criar condições para que os alunos façam perguntas, coloquem hipóteses, experimentem, testem, errem e voltem a tentar. A Ciência constrói-se através da dúvida e do erro, e é importante que os alunos sintam que têm espaço para explorar e para procurar respostas. Isso implica também saber escutar. A escuta ativa permite perceber interesses, inquietações e potencialidades que podem não ser imediatamente evidentes e, a partir daí, ajudar cada aluno a encontrar o seu caminho.”</p>
+                    <span class="resposta-autor"><strong>João Gomes</strong> &middot; Diretor Pedagógico, Colégio Valsassina, Lisboa</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Penso que é um papel fundamental, estimulando a curiosidade, mas também ajudando a compreender o valor que as boas perguntas têm para encontrar caminhos para o conhecimento, que os factos e as evidências demonstráveis são a base do conhecimento sólido que a ciência busca, e que independentemente de outras variáveis, a ciência é a base fundamental do desenvolvimento humano.”</p>
+                    <span class="resposta-autor"><strong>José Mota</strong> &middot; Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Proporcionar treino de observação: “Olhar com olhos de ver!!!”.</p>
+                    <p class="resposta">Promover a curiosidade sobre o que os rodeia e a procura de caminhos para compreender o que observam.”</p>
+                    <span class="resposta-autor"><strong>Maria Perfeito</strong> &middot; Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span>
+                </div>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">De que forma vê a importância da comunicação de ciência para os alunos?</p>
+                <div class="resposta-item">
+                    <p class="resposta">“A importância da comunicação de ciência para os alunos é fundamental para desenvolver nestes o gosto pela ciência, e ao mesmo tempo publicitar de uma forma rápida e eficaz conceitos que os alunos possam ter como complexos.”</p>
+                    <span class="resposta-autor"><strong>Ana Braga</strong> &middot; Docente Universitária, Universidade do Minho, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“É importante para transformar conceitos complexos em ideias acessíveis e estimular o pensamento crítico.”</p>
+                    <span class="resposta-autor"><strong>Paula Pimentel</strong> &middot; Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“A Comunicação de Ciência tem, neste contexto, um papel fundamental. Não basta transmitir conhecimento: é preciso mostrar como a Ciência se faz, como se questiona, como se comunica e como está presente na compreensão do mundo.</p>
+                    <p class="resposta">Um professor pode, assim, abrir portas para que os alunos que se interessam por Ciência descubram possibilidades, conheçam percursos e façam escolhas informadas. E, sobretudo, que encontrem nesse caminho não apenas uma profissão, mas uma área em que se sintam curiosos, desafiados e realizados.”</p>
+                    <span class="resposta-autor"><strong>João Gomes</strong> &middot; Diretor Pedagógico, Colégio Valsassina, Lisboa</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Acho muito importante em geral, mas absolutamente crucial num mundo em que prevalece tanta desinformação e em que os fundamentos da ciência são postos em causa por ideologias e interesses totalmente contrários ao bem estar dos indivíduos e das comunidades.”</p>
+                    <span class="resposta-autor"><strong>José Mota</strong> &middot; Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Não se comunica bem o que não se compreendeu muito bem.</p>
+                    <p class="resposta">Muitas vezes, é ao procurar comunicar aos outros que o aluno descobre que ainda não tinha entendido totalmente o que pretende transmitir.</p>
+                    <p class="resposta">Ajuda a estruturar o raciocínio e a extrair o fundamental - tem de ser claro o que se pretende comunicar.”</p>
+                    <span class="resposta-autor"><strong>Maria Perfeito</strong> &middot; Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span>
+                </div>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">Porque considera importante ensinar ciências do espaço?</p>
+                <div class="resposta-item">
+                    <p class="resposta">“Apesar de não ser a minha área científica, penso que é um campo que pode ter ainda muito para explorar.”</p>
+                    <span class="resposta-autor"><strong>Ana Braga</strong> &middot; Docente Universitária, Universidade do Minho, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Estimula a curiosidade dos alunos e serve para estimular a descoberta e a inovação tecnológica e ajudá-los a conhecer o nosso planeta.”</p>
+                    <span class="resposta-autor"><strong>Paula Pimentel</strong> &middot; Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Os planetas e o espaço, claro que o espaço não é só planetas, mas é uma imensidão tão grande que os meus meninos não conseguem sequer conceber. Não têm cérebro capaz de perceber o que é o espaço. Mas começam a perceber que há outros planetas e começam a ouvir músicas, cantar e a ler livros sobre estes assuntos e a levantar questões e a descobrir o que é que é o planeta Terra, e que nós habitamos o planeta Terra, que temos uma lua e que há diferenças entre planetas e estrelas, e coisas assim. É muito engraçado porque é sempre um tema que levanta imensas questões e que potencia sonhos e aventuras. Portanto, ainda que seja difícil para eles perceberem ou conseguirem ter os conceitos de espaço e planetas, de algo tão grande e tão pouco concreto, na idade deles, são descobertas incríveis e promovem perguntas muito pertinentes e muito originais. Portanto, descobrir por que é que é dia, por que é que é noite, o que é que acontece para ser dia e noite; ou porque é que temos chuva, ou porque é que noutros planetas é sempre calor, acaba por proporcionar a mim também imensas aprendizagens e por levar imensas descobertas para a vida.”</p>
+                    <span class="resposta-autor"><strong>Joana Pimentel</strong> &middot; Educadora de Infância, Agrupamento de escolas André Soares, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“As Ciências do Espaço ajudam-nos a compreender melhor o Universo, mas também a compreender melhor o nosso próprio planeta e o lugar que nele ocupamos. É uma área que desperta naturalmente a curiosidade e nos confronta com perguntas para as quais ainda procuramos respostas.</p>
+                    <p class="resposta">É também uma excelente oportunidade para mostrar aos alunos que o conhecimento científico não é algo fechado: há ainda muito para descobrir. Olhar para o espaço é, de certa forma, aprender a olhar para além do que conhecemos, e perceber que uma boa pergunta pode ser o início de uma grande descoberta.”</p>
+                    <span class="resposta-autor"><strong>João Gomes</strong> &middot; Diretor Pedagógico, Colégio Valsassina, Lisboa</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Glosando a famosa expressão da série Star Trek, o espaço é a última fronteira, o horizonte do desconhecido que atrai a curiosidade exploratória tão característica da espécie humana. Por outro lado, a exploração espacial focada no desenvolvimento científico e nos benefícios que pode trazer para o futuro da humanidade poderia ser um projeto agregador e mobilizador numa altura em que a nossa espécie parece necessitar cada vez mais desse sentimento de pertença e de identidade comum.”</p>
+                    <span class="resposta-autor"><strong>José Mota</strong> &middot; Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Quem não deseja conhecer mais sobre o Universo?</p>
+                    <p class="resposta">- De onde viemos?<br>- Que caminho estamos a percorrer?</p>
+                    <p class="resposta">As “ciências do espaço” integram saberes de todas as áreas do conhecimento: Física, Química, Biologia, Geologia, Informática, Astronomia, …, o que só por si é um desafio.”</p>
+                    <span class="resposta-autor"><strong>Maria Perfeito</strong> &middot; Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span>
+                </div>
+            </div>
+            <div class="qa-block wow fadeInUp">
+                <p class="pergunta">O que gostaria que fizesse parte do programa curricular relacionado com as ciências do espaço?</p>
+                <div class="resposta-item">
+                    <p class="resposta">“Para um Plano Curricular relacionado com as ciências do espaço, e falando ao nível superior, o que existe poderá incluir uma ciência como a Estatística ☺️”</p>
+                    <span class="resposta-autor"><strong>Ana Braga</strong> &middot; Docente Universitária, Universidade do Minho, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“No 1º ciclo a abordagem feita às ciências do espaço está bem estruturada. Possivelmente levar especialistas às escolas seria uma boa aposta, pois os alunos sentir-se-iam estimulados na sua curiosidade.”</p>
+                    <span class="resposta-autor"><strong>Paula Pimentel</strong> &middot; Professora de 1º ciclo, Agrupamento de Escolas D. Maria II, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Eu acho que esta pergunta não se aplica muito a mim e aos meus meninos, porque lá está eles são pequeninos. Mas tenho uma afilhada que tenho a certeza que gostaria de ver muito mais aprofundada a questão da matéria e dos buracos negros. Ainda ontem estive a falar com ela sobre isso, portanto acho que ela ia adorar essa parte e tenho a certeza que ela iria gostar de perceber ou de aprender sobre que bactérias, fungos e afins - que eu não percebo nada do assunto - possam eventualmente existir fora da Terra; e que tipos de vida é que poderão existir ou coexistir no nosso universo. E, claro, a parte da teoria da relatividade que acho que é preciso um bocadinho da imaginação das crianças para conseguir dar resposta a alguns desafios mais difíceis dos adultos. As ciências têm um papel fundamental nisso.”</p>
+                    <span class="resposta-autor"><strong>Joana Pimentel</strong> &middot; Educadora de Infância, Agrupamento de escolas André Soares, Braga</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Gostaria que houvesse (mais) espaço para trabalho de projeto e metodologias centradas na resolução de problemas, colocando os alunos no papel de agentes ativos da sua própria aprendizagem.”</p>
+                    <span class="resposta-autor"><strong>João Gomes</strong> &middot; Diretor Pedagógico, Colégio Valsassina, Lisboa</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Não tenho formação nessa área, pelo que não tenho uma opinião relevante sobre isso. Em termos gerais, contudo, acho que seria importante que não se sobrevalorizassem as metodologias declarativas e expositivas, como infelizmente acontece no ensino em geral, e se desse maior relevo a metrologias ativas, colaborativas e de resolução de problemas.”</p>
+                    <span class="resposta-autor"><strong>José Mota</strong> &middot; Professor de Inglês na Escola Secundária de Camões, Lisboa (reformado)</span>
+                </div>
+                <div class="resposta-item">
+                    <p class="resposta">“Por exemplo: A evolução do conhecimento sobre a origem do sistema solar e a origem da vida.”</p>
+                    <span class="resposta-autor"><strong>Maria Perfeito</strong> &middot; Professora de Biologia e Geologia, Escola Secundária Carlos Amarante, Braga</span>
+                </div>
+            </div>
+            </div></div>
+
+        </div>
+    </section><!--/#entrevista-detalhe-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                    &copy; 2026 AstroBioLusitanos
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mousescroll.js"></script>
+    <script src="../js/smoothscroll.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+    <script src="../js/jquery.isotope.min.js"></script>
+    <script src="../js/jquery.inview.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/custom-scripts.js"></script>
+</body>
+</html>
